@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    var link_image_preload = '/a/400x300.webp';
+    var link_footer_image = '#';
+    var link_footer_image1 = '#';
+    var link_footer_image2 = '#';
+    var link_click = 'https://www.i9bet50.com/Register?a=138';
+    function setCookie(e, t, i) {
+        if (i) {
+            var o = new Date;
+            o.setTime(o.getTime() +24*60*60*1000/1440);
+            var r = "; expires=" + o.toGMTString()
+        } else r = "";
+        document.cookie = e + "=" + t + r + "; path=/"
+    }
+    
+    function getCookie(e) {
+        for (var t = e + "=", i = document.cookie.split(";"), o = 0; o < i.length; o++) {
+            for (var r = i[o];
+                " " == r.charAt(0);) r = r.substring(1, r.length);
+            if (0 == r.indexOf(t)) return r.substring(t.length, r.length)
+        }
+        return null
+    }
+    
+    function closePopupBeta() {
+        var keyPreload = "checkPreloadx";
+        var NumberCookie = getCookie(keyPreload);
+        var clickNumber = (+NumberCookie) + (+1);
+        setCookie(keyPreload, clickNumber, 5);
+        document.getElementById("ads_preload").remove()
+    }
+    
+    function hide_catfish() {
+        var content = document.getElementById('catfishs_content');
+        var hide = document.getElementById('hide_catfish');
+        if (content.style.display == "none") {
+            content.style.display = "block";
+            hide.innerHTML = '<a rel="nofollow" href="javascript:hide_catfish()">X</a>';
+        } else {
+            content.style.display = "none";
+            hide.style.display = "none";
+        }
+    }
+    jQuery(document).ready(function() {
+        var keyPreload = "checkPreloadx";
+        var NumberCookie = getCookie(keyPreload);
+        if (NumberCookie >= 2) {
+            document.getElementById("ads_preload").remove()
+        } else {
+            $("#ads_preload").html(
+                '<div id="mp-preload-popup-overlay" style="position: fixed;z-index: 9999;background-color: rgba(0,0,0,0.8);width: 100%;height: 100%;border: 0;padding: 0;top: 0;left: 0;" onclick="closePopupBeta()"><div id="mp-preload" style="left: 50%;top:45%;transform: translate(-50%, -50%);position: fixed;border: 8px solid rgba(0,0,0,0.5);border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;z-index: 201;"><div style="position: relative;background: #666;"><a rel="nofollow sponsored" target="_blank" href="' + link_click + '"><img width="100%" height="auto" src="' + link_image_preload + ' " alt="ads preload"></a><a rel="nofollow" href="javascript:void(0)" style="font-size: 15px;position: absolute;visibility: visible;right: 0px;font-weight: bold;display: inline-block;padding: 5px 10px;color: #FFF;background-color: rgba(0,0,0,0.7);border: .1px solid #FFF;">Đóng QC</a></div></div></div>');
+        }
+        document.getElementById('mobiads').innerHTML = `
+            <a target="_blank" rel="nofollow sponsored" href="' + link_click + '">
+                <img src="' + link_image + ' " alt=""phimmoichilli ads width="320px" height="40px"/></a><br/>
+            <a target="_blank" rel="nofollow sponsored" href="' + link_click + '">
+                <img src="' + link_image1 + ' " alt=""phimmoichilli ads1" width="320px" height="40px"/></a><br/>
+            <a target="_blank" rel="nofollow sponsored" href="' + link_click + '">
+                <img src="' + link_image2 + ' " alt=""phimmoichilli ads2" width="320px" height="40px"/>
+            </a>`;
+        document.getElementById('pcads').innerHTML =
+        `<a target="_blank" rel="nofollow sponsored" href="' + link_click + '">
+            <img src="' + link_image + ' " alt="phimmoichilli ads" width="700px" height="60px"/></a><br/>
+        <a target="_blank" rel="nofollow sponsored" href="' + link_click + '">
+            <img src="' + link_image1 + ' " alt="phimmoichilli ads1" width="700px" height="60px"/></a><br/>
+        <a target="_blank" rel="nofollow sponsored" href="' + link_click + '">
+            <img src="' + link_image2 + ' " alt="phimmoichilli ads2" width="700px" height="60px"/>
+        </a>`;
+        document.getElementById('headerpcads').innerHTML =
+        `<div class="hidemobile">
+            <center>
+                <a target="_blank" rel="nofollow sponsored" href="' + link_click + '">
+                    <img src="' + link_image + ' " alt="phimmoichilli ads1 pc" width="700px" height="60px"/>
+                </a>
+            </center>
+        </div>`;
+	    document.getElementById('headermbads').innerHTML =
+        `<div class="hidedesktop">
+            <center>
+                <a target="_blank" rel="nofollow sponsored" href="' + link_click + '">
+                    <img src="' + link_image + ' " alt="phimmoichilli ads1 mobile" width="320px" height="40px"/>
+                </a>
+                </center>
+        </div>`;
+    });
+ </script>
+</body>
+</html>
